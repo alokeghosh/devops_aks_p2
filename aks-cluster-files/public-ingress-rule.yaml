@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: greenpublic-ingress-rule
-  namespace: devops_aks_p2
+  namespace: devops-aks-p2
   annotations:
     kubernetes.io/ingress.class: public-nginx          
     nginx.ingress.kubernetes.io/ssl-redirect: "false" 
