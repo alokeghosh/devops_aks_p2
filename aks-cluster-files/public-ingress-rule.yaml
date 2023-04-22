@@ -8,7 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false" 
 spec:
   rules:
-  - host: devops_aks_p2.alokeg.local
+  - host: devopsaksp2.alokeg.local
     http:
       paths:
       - path: /
