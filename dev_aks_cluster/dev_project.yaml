@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: devops-aks-p2 
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green-deployment
+  namespace: devops-aks-p2
+spec:
+  selector:
+    matchLabels:
+      app: green
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: green
+    spec:
+      containers:
+      - name: greencontainer
+        image: devopesakscr.azurecr.io/devopsaksp2acr:#{Build.BuildId}#
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: green-svc
+  namespace: devops-aks-p2
+  labels:
+    service: green-svc
+spec:
+  type: ClusterIP
+  selector:
+    app: green
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
