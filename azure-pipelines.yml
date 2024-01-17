@@ -1,0 +1,10 @@
+name: poc-aks-devops-CI
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo This pipeline runs first !
